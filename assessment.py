@@ -63,27 +63,33 @@ class NumberCruncher:
                 my_calculations["product_of_odds"] *= number
         return my_calculations
 
-# class LogicValidator:
-#     def check_discount_eligibility(self, age: int, is_member: bool, has_coupon: bool) -> str:
-#         """
-#         Determines a customer's discount eligibility based on their age,
-#         membership status, and whether they have a coupon.
-#         The rules are applied in the following order of precedence:
+class LogicValidator:
+    def check_discount_eligibility(self, age: int, is_member: bool, has_coupon: bool) -> str:
+        """
+        Determines a customer's discount eligibility based on their age,
+        membership status, and whether they have a coupon.
+        The rules are applied in the following order of precedence:
 
-#         1. If the age is 65 or over, they get a "Senior Discount", regardless of
-#            membership or coupon status.
-#         2. Else if the age is under 18 (i.e., 0-17), they get a "Student Discount",
-#            regardless of membership or coupon status.
-#         3. Else (age is between 18 and 64 inclusive):
-#             a. If they are a member AND have a coupon, they get a "Member Coupon Discount".
-#             b. Else if they are a member (but no coupon), they get a "Member Discount".
-#             c. Else if they have a coupon (but not a member), they get a "Coupon Discount".
-#             d. Otherwise (neither a member nor possessing a coupon), they get "No Discount".
+        1. If the age is 65 or over, they get a "Senior Discount", regardless of
+           membership or coupon status.
+        2. Else if the age is under 18 (i.e., 0-17), they get a "Student Discount",
+           regardless of membership or coupon status.
+        3. Else (age is between 18 and 64 inclusive):
+            a. If they are a member AND have a coupon, they get a "Member Coupon Discount".
+            b. Else if they are a member (but no coupon), they get a "Member Discount".
+            c. Else if they have a coupon (but not a member), they get a "Coupon Discount".
+            d. Otherwise (neither a member nor possessing a coupon), they get "No Discount".
 
-#         Return the string representing the determined discount type.
-#         Assume age will be a non-negative integer.
-#         """
-#         pass
+        Return the string representing the determined discount type.
+        Assume age will be a non-negative integer.
+        """
+        return "Senior Discount" if age >= 65 else \
+                "Student Discount" if age < 18 else \
+                "Member Coupon Discount" if 18 <= age <= 64 and is_member and has_coupon else \
+                "Member Discount" if 18 <= age <= 64 and is_member and not has_coupon else \
+                "Coupon Discount" if 18 <= age <= 64 and not is_member and has_coupon else \
+                "No Discount"
+                
 
 # class PasswordValidatorTDD:
 #     # NOTE TO STUDENT: For this class, you must first write the unit tests in
