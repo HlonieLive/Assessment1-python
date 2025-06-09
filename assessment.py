@@ -29,30 +29,39 @@ class StringProcessor:
         except Exception:
             raise TypeError("Sentence must be a string!")
 
-# class NumberCruncher:
-#     def process_numbers(self, numbers: list[int]) -> dict[str, int]:
-#         """
-#         Processes a list of integers to calculate the sum of all even numbers
-#         and the product of all odd numbers.
+class NumberCruncher:
+    def process_numbers(self, numbers: list[int]) -> dict[str, int]:
+        """
+        Processes a list of integers to calculate the sum of all even numbers
+        and the product of all odd numbers.
 
-#         - 0 is considered an even number.
-#         - If the list is empty or contains no even numbers, the sum of evens should be 0.
-#         - If the list is empty or contains no odd numbers, the product of odds should be 1
-#           (as 1 is the multiplicative identity).
+        - 0 is considered an even number.
+        - If the list is empty or contains no even numbers, the sum of evens should be 0.
+        - If the list is empty or contains no odd numbers, the product of odds should be 1
+          (as 1 is the multiplicative identity).
 
-#         Returns:
-#             A dictionary with two keys:
-#             - "sum_of_evens": The sum of all even numbers in the list.
-#             - "product_of_odds": The product of all odd numbers in the list.
+        Returns:
+            A dictionary with two keys:
+            - "sum_of_evens": The sum of all even numbers in the list.
+            - "product_of_odds": The product of all odd numbers in the list.
 
-#         Examples:
-#         - [1, 2, 3, 4, 5] should return {"sum_of_evens": 6, "product_of_odds": 15}
-#         - [2, 4, 6, 0] should return {"sum_of_evens": 12, "product_of_odds": 1}
-#         - [1, 3, 5] should return {"sum_of_evens": 0, "product_of_odds": 15}
-#         - [] (empty list) should return {"sum_of_evens": 0, "product_of_odds": 1}
-#         - [-2, -3, -4, 5] should return {"sum_of_evens": -6, "product_of_odds": -15}
-#         """
-#         pass
+        Examples:
+        - [1, 2, 3, 4, 5] should return {"sum_of_evens": 6, "product_of_odds": 15}
+        - [2, 4, 6, 0] should return {"sum_of_evens": 12, "product_of_odds": 1}
+        - [1, 3, 5] should return {"sum_of_evens": 0, "product_of_odds": 15}
+        - [] (empty list) should return {"sum_of_evens": 0, "product_of_odds": 1}
+        - [-2, -3, -4, 5] should return {"sum_of_evens": -6, "product_of_odds": -15}
+        """
+        my_calculations = {
+            "sum_of_evens": 0,
+        "product_of_odds": 1
+        }
+        for number in numbers:
+            if number%2 == 0:
+                my_calculations["sum_of_evens"] += number
+            else:
+                my_calculations["product_of_odds"] *= number
+        return my_calculations
 
 # class LogicValidator:
 #     def check_discount_eligibility(self, age: int, is_member: bool, has_coupon: bool) -> str:
