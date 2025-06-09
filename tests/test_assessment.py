@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 import io
 import sys
-from assessment import StringProcessor, NumberCruncher, LogicValidator, PasswordValidatorTDD
+from assessment import *
 
 class TestStringProcessor(unittest.TestCase):
     def setUp(self):
