@@ -21,10 +21,8 @@ class StringProcessor:
         - "  " (only spaces) should become "  "
         """
         try:
-            output = sentence.split()
-            for word in output:
-                if word in sentence:
-                    sentence = sentence.replace(word, word[::-1])
+            for word in sentence.split():
+                sentence = sentence.replace(word, word[::-1])
             return sentence
         except Exception:
             raise TypeError("Sentence must be a string!")
