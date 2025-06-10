@@ -91,25 +91,33 @@ class LogicValidator:
                 "No Discount"
                 
 
-# class PasswordValidatorTDD:
-#     # NOTE TO STUDENT: For this class, you must first write the unit tests in
-#     # test_assessment.py for the `is_valid_password` method *before*
-#     # implementing the method itself. This is a Test-Driven Development (TDD) exercise.
+class PasswordValidatorTDD:
+    # NOTE TO STUDENT: For this class, you must first write the unit tests in
+    # test_assessment.py for the `is_valid_password` method *before*
+    # implementing the method itself. This is a Test-Driven Development (TDD) exercise.
 
-#     def is_valid_password(self, password: str) -> bool:
-#         """
-#         Validates a password string based on the following criteria.
-#         All criteria must be met for the password to be considered valid.
+    def is_valid_password(self, password: str) -> bool:
+        """
+        Validates a password string based on the following criteria.
+        All criteria must be met for the password to be considered valid.
 
-#         1. Length: Must be at least 8 characters long AND no more than 30 characters long.
-#         2. Uppercase: Must contain at least one uppercase letter (A-Z).
-#         3. Lowercase: Must contain at least one lowercase letter (a-z).
-#         4. Digit: Must contain at least one digit (0-9).
-#         5. Special Character: Must contain at least one special character from the
-#            following set: ! @ # $ % ^ & * ( ) - _ + =
+        1. Length: Must be at least 8 characters long AND no more than 30 characters long.
+        2. Uppercase: Must contain at least one uppercase letter (A-Z).
+        3. Lowercase: Must contain at least one lowercase letter (a-z).
+        4. Digit: Must contain at least one digit (0-9).
+        5. Special Character: Must contain at least one special character from the
+           following set: ! @ # $ % ^ & * ( ) - _ + =
 
-#         If all criteria are met, return True. Otherwise, return False.
-#         You should implement this method *after* writing comprehensive unit tests
-#         for it in the test_assessment.py file.
-#         """
-#         pass
+        If all criteria are met, return True. Otherwise, return False.
+        You should implement this method *after* writing comprehensive unit tests
+        for it in the test_assessment.py file.
+        """
+        import re
+        pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()=/<>|]).{8,}$"
+
+        return True if re.match(pattern, password) else False
+
+passwords = ["Password123!", "passWORD123!", "weakpass@12", "NoSpecial123"]
+validator = PasswordValidatorTDD()
+for password in passwords:
+    print(validator.is_valid_password(password))
